@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -23,13 +25,23 @@ public class Main {
         Urun silgi = kalem;
         Urun masa = new Urun();
 
+        silgi.setAd("Pelikan");
         //kalem adresine heap'e git ad değerini değiştir:
-        kalem.Ad = "Rotring 0.7 uçlu kalem";
-        kalem.Fiyat = 200;
+        kalem.setAd("Rotring 0.7 uçlu kalem");
+
+        System.out.println("Fiyatı girin:");
+        Scanner scanner = new Scanner(System.in);
+        double fiyat = scanner.nextDouble();
+
+        if (fiyat<=0){
+            throw new IllegalArgumentException("Fiyat 0 ya da negatif olamaz");
+        }
+
+        kalem.setFiyat(fiyat);
         //silgi adresine git. Ad değerini değiştir.
 
 
-        System.out.println(kalem.Ad + " - " + kalem.Fiyat);
+        System.out.println(kalem.getAd()+ " - " + kalem.getFiyat());
 
     }
 }
